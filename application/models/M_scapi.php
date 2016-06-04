@@ -80,12 +80,12 @@ class M_scapi extends CI_Model {
 					'password' => md5($this->input->post('password', TRUE))
 					));
 					if ($val == true) {
-						$this->session->set_flashdata('success', 'Data berhasil ditambahkan');
+						$this->session->set_flashdata('success', 'Success add new data');
 					}else{
-						$this->session->set_flashdata('error', 'Maaf system kami sedang mengalami ganguan!');
+						$this->session->set_flashdata('error', 'Sorry failed to add new data!');
 					}
 			}else{
-				$this->session->set_flashdata('error', "Sorry, Password harus");
+				$this->session->set_flashdata('error', "Sorry, your password must be matched with new password");
 			}
 		}
 		redirect('admin/users');
@@ -107,12 +107,12 @@ class M_scapi extends CI_Model {
 		if ($this->session->userdata('id_user') != $id) {			
 			$val = $this->db->delete('user',array('id_user' => $id));
 			if ($val == true) {
-				$this->session->set_flashdata('success', 'Data berhasil dihapus');
+				$this->session->set_flashdata('success', 'Sucess delete data');
 			}else{
-				$this->session->set_flashdata('error', 'Maaf system kami sedang mengalami ganguan!');
+				$this->session->set_flashdata('error', 'Sorry failed to delete data!');
 			}
 		}else{
-			$this->session->set_flashdata('error', "Sorry this data can't deleted");
+			$this->session->set_flashdata('error', "Sorry this data can't be deleted");
 		}
 		redirect('admin/users');
 	}
@@ -177,9 +177,9 @@ class M_scapi extends CI_Model {
 					'genre' => $this->input->post('genre', TRUE)
 					));
 					if ($val == true) {
-						$this->session->set_flashdata('success', 'Data berhasil ditambahkan');
+						$this->session->set_flashdata('success', 'Success add new data');
 					}else{
-						$this->session->set_flashdata('error', 'Maaf system kami sedang mengalami ganguan!');
+						$this->session->set_flashdata('error', 'Sorry failed to add new data!');
 					}
 		}
 		redirect('admin/genres');
@@ -189,7 +189,7 @@ class M_scapi extends CI_Model {
 	{
 		if (isset($_POST['sub'])) {	
 			$this->db->update('genres',array('genre' => $this->input->post('genre', TRUE)),array('id_genre' => $this->input->post('id')));	
-			$this->session->set_flashdata('success', 'Data berhasil diubah');			
+			$this->session->set_flashdata('success', 'success!');			
 		}else{
 			$this->session->set_flashdata('error', "You Can't Access this address, Please submit button add genre!");
 		}
@@ -200,9 +200,9 @@ class M_scapi extends CI_Model {
 	{
 		$val = $this->db->delete('genres',array('id_genre' => $id));
 		if ($val == true) {
-			$this->session->set_flashdata('success', 'Data berhasil dihapus');
+			$this->session->set_flashdata('success', 'Data had been deleted!');
 		}else{
-			$this->session->set_flashdata('error', 'Maaf system kami sedang mengalami ganguan!');
+			$this->session->set_flashdata('error', 'Sorry failed to delete the data!');
 		}
 		
 		redirect('admin/genres');
@@ -269,9 +269,9 @@ class M_scapi extends CI_Model {
 					'text' => $this->input->post('text')
 					));
 					if ($val == true) {
-						$this->session->set_flashdata('success', 'Data berhasil ditambahkan');
+						$this->session->set_flashdata('success', 'Success add new data');
 					}else{
-						$this->session->set_flashdata('error', 'Maaf system kami sedang mengalami ganguan!');
+						$this->session->set_flashdata('error', 'Sorry failed to add new data!');
 					}
 		}
 		redirect('admin/advertisement');
@@ -292,9 +292,9 @@ class M_scapi extends CI_Model {
 	{
 		$val = $this->db->delete('advertisement',array('id_adver' => $id));
 		if ($val == true) {
-			$this->session->set_flashdata('success', 'Data berhasil dihapus');
+			$this->session->set_flashdata('success', 'Data had been deleted!');
 		}else{
-			$this->session->set_flashdata('error', 'Maaf system kami sedang mengalami ganguan!');
+			$this->session->set_flashdata('error', 'Sorry failed to delete the data!');
 		}
 		
 		redirect('admin/advertisement');

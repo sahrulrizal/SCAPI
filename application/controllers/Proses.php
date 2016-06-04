@@ -49,7 +49,7 @@ class Proses extends CI_Controller {
 			redirect('admin');
 
 		}else{
-			$this->session->set_flashdata('error', 'Maaf username dan password yang anda masukan tidak valid, Mohon cek kembali !');
+			$this->session->set_flashdata("error", "Sorry your username and password doesn't match, please check again :)");
 			redirect('main/sc_admin');
 		}
 	}
